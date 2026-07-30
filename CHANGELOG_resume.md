@@ -4,6 +4,45 @@ All notable changes to Carl Lochstampfor's resume site are documented in this fi
 
 ---
 
+## [2.6.0] - 2026-07-30
+
+### Added — Personal Projects subsection (LockBadges)
+- **New "🔧 Personal Projects" subsection** inside the Featured Project section, placed after the Secure File Sharing System card and before Labs & Applied Coursework
+- **LockBadges card**: movable, translucent on-screen indicators for Caps/Num/Scroll Lock and Mute on Windows — a shipped, fully documented AutoHotkey v2 utility
+  - Two-sentence-per-paragraph summary covering what it does and the privacy posture (toggle-bit state reads instead of a keyboard hook; no network access, telemetry, or logging)
+  - Tech tags: `AutoHotkey v2`, `Windows`, `Privacy-Focused`
+  - GitHub link to `CLochstampfor60/LockBadges`
+- **One thumbnail** added at `Images/lockbadges/lockbadges_settings.png` (settings window with three badges on the taskbar), capped at `sm:w-40 md:w-48` and stacked above the text on mobile
+
+### Design notes
+- Deliberately **subordinate to the research cards**: rendered as an `h3` subsection under the existing section heading rather than its own top-level section, with a smaller card, smaller type, and a compact button
+- **Slate palette** — outside the established hierarchy (navy = structure, gold = achievement, periwinkle = AI/research, teal = labs), so a side project never reads as research or coursework
+- No accordion, no carousel, single image — kept intentionally brief
+
+### Preserved
+- CSP unchanged (same-origin image satisfies `img-src 'self'`), dark mode, print stylesheet, mobile responsiveness, GSAP reveal animations, and `prefers-reduced-motion`
+- **Version bumped to v2.6.0**
+
+---
+
+## [2.5.0] - 2026-07-27
+
+### Added — Headshot in the header
+- **Portrait added to the header nameplate**, left of the name: a `<picture>` element serving `Images/headshot.webp` with a `Images/headshot.png` fallback, sized `w-16 h-16` on mobile and `w-20 h-20` from `md:` up, circular with a gold border (`border-gold-400` / `dark:border-gold-300`)
+- Loaded with `loading="eager"` and explicit `width`/`height` to avoid layout shift on a above-the-fold image
+- Source images also committed: `Images/face_headshot_image.jpg` and `Images/face_headshot_image.png` (full-resolution originals; the served assets are the downscaled `headshot.png` / `headshot.webp`)
+- Header layout adjusted to a `flex items-center gap-4` group so the portrait and nameplate align on one row
+
+### Also included in this range
+- **Timeline — future research items**: COVA-B Benign Dataset (Summer 2026, In Progress) and Multi-Model Comparison Study (Fall 2026, Planning), styled as a continued list with a dashed left border, gray dots, muted text, and gray status badges to separate in-progress work from completed items
+- **Experience — AmeriCorps / Habitat for Humanity Construction Team Leader (2009–2011)** restored to the Professional Experience section
+- ScamLingua Platform timeline date normalized to "Jul 2026" for consistent formatting
+
+### Notes
+- The headshot shipped from a second workstation in commits `301c70a`, `c5bd13b`, and `eced528`; the timeline and experience changes shipped earlier in `3bc01ea` and `10aced7`. `index.html` was bumped to v2.5.0 at the time but no changelog entry was written — documented retroactively here so the history has no gap
+
+---
+
 ## [2.4.0] - 2026-07-22
 
 ### Added — Pipeline demo screenshots in the research accordions
