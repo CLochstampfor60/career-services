@@ -15,6 +15,14 @@ PDF only; no change to the website. The section previously listed **results with
 - Each is held to **one line**. A first pass at fuller descriptions wrapped all five to two lines and pushed the document to three pages; they were trimmed to ~105 characters rather than losing a page
 - Two earlier drafts were discarded for restating the bullets instead of setting scope — one opened BlueHub with almost the exact wording of that job's first bullet
 
+### Changed — BlueHub bullet replaced
+- The first BlueHub bullet claimed support for "internal bank examinations and compliance audits", which does not appear anywhere in that role's LinkedIn entry — that work sits closer to the TIAA position. Replaced with the **workflow revision** the profile does describe: adapting underwriting and loan-processing to rapidly shifting economic and pandemic-driven demand
+- The role description was re-cut alongside it so the three items divide cleanly: description covers scope and mentoring, bullet one the workflow revision, bullet two the SMS platform deployment
+
+### Checked and left alone
+- **Company naming** (`EverBank & TIAA Bank`, `EverBank & Ditech Financial`) differs from LinkedIn deliberately — the résumé consolidates a transfer between related employers into single entries; the author confirmed this is intentional and explainable in interview
+- **Both AmeriCorps claims** (150+ daily volunteers / 100+ completed homes, and the $1.2M project) are separate and accurate
+
 ### Notes
 - Still **two pages**, with roughly 3–4 lines of slack left on page 2 if any description should be expanded
 - Source saved to `_source/Carl_Lochstampfor_Resume.docx`; dated copy kept at `internal_docs/..._v5.docx`
