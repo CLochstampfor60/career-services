@@ -4,6 +4,23 @@ All notable changes to Carl Lochstampfor's resume site are documented in this fi
 
 ---
 
+## [2.8.1] - 2026-08-13
+
+### Added — Word source under version control
+- **`_source/Carl_Lochstampfor_Resume.docx`** — the Word document the PDF is exported from is now tracked, using the same stable, unversioned filename as the PDF
+- Previously the source lived only in gitignored `internal_docs/`, meaning a disk failure would have left the PDF rebuildable only by hand from its own rendered output. The source is the file that makes every future edit cheap, so it is the one most worth having history for (~19 KB per revision)
+
+### Why `_source/` and not `docs/`
+- GitHub Pages serves this repo from the root, so **anything in `docs/` is publicly downloadable**. The PDF being reachable is intentional; an editable `.docx` would not be — it cuts against PDF-only distribution and hands anyone a copy trivially altered to carry a different name. It also embeds document metadata (`lastModifiedBy`, revision count)
+- With no `.nojekyll` and no `_config.yml`, Pages runs **default Jekyll, which skips any path beginning with an underscore**. `_source/` is therefore tracked in git but never served
+- **Caveat:** that exclusion depends on Jekyll staying enabled. Adding a `.nojekyll` file at any point would stop the underscore rule applying and make `_source/` publicly reachable
+- `internal_docs/` remains gitignored and keeps the dated working copies (`..._v3.docx`, `..._v4.docx`)
+
+### Notes
+- No user-visible change to the site; version bumped to **v2.8.1** to keep the on-page string and this changelog in step
+
+---
+
 ## [2.8.0] - 2026-08-13
 
 ### Added — Downloadable PDF résumé
