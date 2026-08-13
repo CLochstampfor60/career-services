@@ -51,16 +51,18 @@ This repository is more than a static document; it is a hardened, search-optimiz
 
 ## 📄 Résumé Files
 
+**Looking for the résumé?** → **[Read it online](https://clochstampfor60.github.io/resume/)** or **[download the PDF](docs/Carl_Lochstampfor_Resume.pdf)**.
+
 | Path | Purpose |
 | --- | --- |
-| `docs/Carl_Lochstampfor_Resume.pdf` | The published PDF — what the header download button serves. Publicly reachable. |
-| `_source/Carl_Lochstampfor_Resume.docx` | The Word source the PDF is exported from. Tracked, but **not** published. |
+| `docs/Carl_Lochstampfor_Resume.pdf` | **The published résumé.** Served by the site's download button — this is the file to share. |
+| `_source/Carl_Lochstampfor_Resume.docx` | Internal Word source the PDF is exported from. Tracked so résumé edits carry history; not part of the published site. |
 
-Both use a stable, unversioned filename so links never break; the changelog records which version is current.
+Both use stable, unversioned filenames so links never break — the changelog records what changed in each version.
 
-> **⚠️ Do not add a `.nojekyll` file to this repo.** GitHub Pages serves it through Jekyll, which ignores any path beginning with an underscore — that is the only thing keeping `_source/` (the editable résumé, with its document metadata) from being publicly downloadable. Adding `.nojekyll` would silently publish it.
+`_source/` is kept out of the GitHub Pages build by Jekyll's default rule of skipping underscore-prefixed paths, so the site itself only ever offers the PDF. It is still visible in this public repo, which is intentional: the point is that the site and the PDF are what people find first, not that the source is hidden. (Adding a `.nojekyll` file would start serving `_source/` from the website too.)
 
-When updating résumé content: edit `_source/`, export a fresh PDF over `docs/`, and commit both together.
+**When updating résumé content:** edit `_source/`, export a fresh PDF over `docs/`, and commit both together.
 
 ---
 

@@ -13,7 +13,8 @@ All notable changes to Carl Lochstampfor's resume site are documented in this fi
 ### Why `_source/` and not `docs/`
 - GitHub Pages serves this repo from the root, so **anything in `docs/` is publicly downloadable**. The PDF being reachable is intentional; an editable `.docx` would not be — it cuts against PDF-only distribution and hands anyone a copy trivially altered to carry a different name. It also embeds document metadata (`lastModifiedBy`, revision count)
 - With no `.nojekyll` and no `_config.yml`, Pages runs **default Jekyll, which skips any path beginning with an underscore**. `_source/` is therefore tracked in git but never served
-- **Caveat:** that exclusion depends on Jekyll staying enabled. Adding a `.nojekyll` file at any point would stop the underscore rule applying and make `_source/` publicly reachable
+- **Caveat:** that exclusion depends on Jekyll staying enabled. Adding a `.nojekyll` file at any point would stop the underscore rule applying and start serving `_source/` from the site
+- **Correction (same day):** an earlier draft of this entry and of the README implied the underscore rule keeps the `.docx` from being publicly downloadable. It does not. This repo is public, so the file is retrievable from GitHub directly (`raw.githubusercontent.com/.../_source/...`) regardless of Jekyll. The exclusion only governs whether the *published site* serves it. That is the intended goal — the site and PDF are what visitors find first — but it is not privacy, and the source is not secret
 - `internal_docs/` remains gitignored and keeps the dated working copies (`..._v3.docx`, `..._v4.docx`)
 
 ### Notes
