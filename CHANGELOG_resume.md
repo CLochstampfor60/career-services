@@ -4,6 +4,31 @@ All notable changes to Carl Lochstampfor's resume site are documented in this fi
 
 ---
 
+## [2.13.0] - 2026-08-13
+
+### Added — back-to-top button
+The page now measures **12,981px on a phone &mdash; about 15 screens** &mdash; with Professional Experience alone accounting for 30% of it. There was no way back to the navigation without scrolling the whole way up.
+
+- Fixed bottom-right button, appearing only after **800px** of scroll so it never competes with the header, summary, or availability badge
+- 48&times;48, clearing the 44px touch-target floor; `z-40` keeps it beneath the sticky header so it can never overlap the nav or an open mobile menu
+- Navy in light mode, gold in dark, matching the accent already used there for the badge and focus ring
+- **Moves focus to `#main-content` after scrolling**, so keyboard and screen-reader users resume from the top rather than from wherever they were
+- Honours `prefers-reduced-motion` by jumping instead of smooth-scrolling; `.no-print`
+- Uses `visibility: hidden` rather than opacity alone while hidden, so it leaves the tab order entirely instead of being an invisible focus stop
+- Scroll handler is `passive` and `requestAnimationFrame`-throttled
+
+### Considered and rejected — collapsing other sections
+Making Experience, Skills or Projects collapsible like the COVA research cards was considered and **deliberately not done**:
+
+- **Text inside a closed `<details>` is not found by Ctrl+F.** A recruiter searching the page for `OCC`, `EVARS` or `incident response` would get no match and conclude the experience is absent &mdash; the opposite of what the reframe was for
+- The COVA accordions work because they hide *secondary* depth beneath a headline that stays visible. Experience and Skills are primary content
+- Each new `<details>` would need a matching print rule; the stylesheet already force-opens `details.research-details` so PDF export is not silently emptied
+- Experience is 30% of the page and the section a recruiter most wants to read &mdash; collapsing it to save scrolling is a poor trade
+
+- **Version bumped to v2.13.0**
+
+---
+
 ## [2.12.1] - 2026-08-13
 
 ### Changed — PDF Work Experience: platform stack in, LockBadges out

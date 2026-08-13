@@ -170,6 +170,11 @@
         
         .nav-link { transition: color 0.2s ease; }
 
+        /* Back-to-top fade. `invisible` (visibility:hidden) is used rather than
+           opacity alone so the button leaves the tab order while hidden. */
+        #backToTop { transition: opacity 0.25s ease, visibility 0.25s ease, transform 0.25s ease; transform: translateY(0.5rem); }
+        #backToTop.is-visible { transform: translateY(0); }
+
         /* Keyboard focus. :focus-visible fires for keyboard/AT navigation but not
            mouse clicks, so this is invisible to pointer users and essential for
            everyone else. Gold in dark mode for the same reason the badge uses it —
@@ -391,7 +396,7 @@
                 <span class="hidden sm:inline text-slate-400 dark:text-slate-600" aria-hidden="true">|</span>
                 <a href="https://sites.wp.odu.edu/locky/" target="_blank" rel="noopener noreferrer" class="inline-block py-2 hover:text-purple-600 font-semibold transition">ODU Portfolio</a>
                 <span class="hidden sm:inline text-slate-400 dark:text-slate-600" aria-hidden="true">|</span>
-                <span class="text-slate-900 dark:text-slate-100 font-semibold">e-Resume v2.12.1</span>
+                <span class="text-slate-900 dark:text-slate-100 font-semibold">e-Resume v2.13.0</span>
             </div>
         </section>
 
@@ -1142,6 +1147,14 @@
         </footer>
     </main>
 
+    <!-- Back to top: appears once the reader is well down a ~13,000px page. -->
+    <button id="backToTop" type="button" aria-label="Back to top"
+            class="no-print invisible opacity-0 fixed bottom-6 right-6 z-40 w-12 h-12 inline-flex items-center justify-center rounded-full shadow-lg bg-[#1E3A5F] text-white dark:bg-gold-300 dark:text-[#1E3A5F] hover:ring-2 hover:ring-blue-400 dark:hover:ring-gold-200">
+        <svg class="w-6 h-6" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24" aria-hidden="true">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M5 15l7-7 7 7"></path>
+        </svg>
+    </button>
+
     <script>
         // =====================
         // Animated Counter Logic
@@ -1352,6 +1365,38 @@
             // Navigation Scrolling
             // =====================
             // =====================
+            // =====================
+            // Back to Top
+            // Focus is moved to #main-content after scrolling so keyboard and
+            // screen-reader users resume from the top rather than where they were.
+            // =====================
+            const backToTop = document.getElementById('backToTop');
+            if (backToTop) {
+                const mainContent = document.getElementById('main-content');
+                let ticking = false;
+                const SHOW_AFTER = 800;
+
+                function syncBackToTop() {
+                    const show = window.scrollY > SHOW_AFTER;
+                    backToTop.classList.toggle('invisible', !show);
+                    backToTop.classList.toggle('opacity-0', !show);
+                    backToTop.classList.toggle('opacity-100', show);
+                    backToTop.classList.toggle('is-visible', show);
+                    ticking = false;
+                }
+
+                window.addEventListener('scroll', () => {
+                    if (!ticking) { ticking = true; window.requestAnimationFrame(syncBackToTop); }
+                }, { passive: true });
+                syncBackToTop();
+
+                backToTop.addEventListener('click', () => {
+                    const reduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+                    window.scrollTo({ top: 0, behavior: reduced ? 'auto' : 'smooth' });
+                    if (mainContent) mainContent.focus({ preventScroll: true });
+                });
+            }
+
             // Mobile Menu Toggle
             // The same <nav> is the desktop bar and the mobile dropdown; only its
             // `hidden` class differs, so there is one set of links to maintain.
