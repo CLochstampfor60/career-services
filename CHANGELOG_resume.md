@@ -4,6 +4,20 @@ All notable changes to Carl Lochstampfor's resume site are documented in this fi
 
 ---
 
+## [2.9.1] - 2026-08-13
+
+### Changed — new header headshot
+- Replaced the header portrait with a new office-background photo (better background, sharper capture)
+- Re-cut from the full-resolution source: square crop centred on the face, then resized to **320×320** (was 200×200) so the avatar stays crisp at 3–4× device pixel ratio for its 44px mobile / 80px desktop display
+- Chosen from three candidate crops previewed as circles at avatar size — the tightest framing was picked because a wider crop loses the face at 44px
+- `Images/headshot.png` (132 KB) and `Images/headshot.webp` (13.5 KB) regenerated in place, so no markup changed. WebP is what virtually every browser receives
+- **Full-resolution original preserved untouched** at `_source/professional_office_sitting_v3.png`. All cropping was done on a working copy, never on the original, and it sits in `_source/` rather than `Images/` so 1.9 MB is not part of the published site
+- Previous headshot remains recoverable from git history at `4128b3a`
+
+- **Version bumped to v2.9.1**
+
+---
+
 ## [2.9.0] - 2026-08-13
 
 ### Context — the site was already mobile friendly
