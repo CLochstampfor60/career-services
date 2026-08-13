@@ -45,6 +45,7 @@ This repository is more than a static document; it is a hardened, search-optimiz
 - **LinkedIn:** [Carl Lochstampfor, Jr.](https://www.linkedin.com/in/carl-lochstampfor-jr1)
 - **ODU ePortfolio:** [University Academic Portfolio](https://sites.wp.odu.edu/locky/)
 - **Live Resume:** [GitHub Pages Deployment](https://clochstampfor60.github.io/resume/)
+- **Résumé (PDF):** [Download Current Version](docs/Carl_Lochstampfor_Resume.pdf)
 
 ---
 

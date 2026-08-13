@@ -4,6 +4,51 @@ All notable changes to Carl Lochstampfor's resume site are documented in this fi
 
 ---
 
+## [2.8.0] - 2026-08-13
+
+### Added — Downloadable PDF résumé
+- **`docs/` folder created** to hold the canonical PDF, `docs/Carl_Lochstampfor_Resume.pdf`
+- **"📄 Download Résumé (PDF)" button** in the header, stacked under the name beside the headshot. Secondary/outline treatment — navy border, no fill, inverting to filled navy on hover — so it never competes with the nameplate
+- Carries the `download` attribute, so it saves to disk rather than opening in a browser tab
+- Marked `.no-print`: a download button is dead weight on paper, and the global print rule that appends `href` after every link would have rendered a stray URL line in the PDF export
+- **`README.md` → "Professional Links"** now lists the PDF alongside LinkedIn, the ePortfolio, and the live site
+
+### Changed — "Actively seeking" badge
+- Promoted from a muted sentence to a **pill badge** (🎯 emoji, navy tint, rounded-full, bordered) with the longer-term availability as supporting text beside it, in both the Executive Summary and the Contact section
+- Bumped to `text-base` / `font-bold` after a first pass at `text-sm` / `font-semibold` read too quietly
+- **Dark mode recolored to gold** (`gold-400/15` fill, `gold-300` border, `gold-200` text). The original navy-on-slate treatment was nearly invisible against the dark background; gold was already the established accent for achievement, and reusing `#DDB44A` matches the GPA highlight and headshot ring rather than introducing a fourth near-identical gold
+- Added `.seeking-badge { print-color-adjust: exact }` so the fill and border survive a PDF export instead of flattening to plain text
+- Dropped the `·` separator before the supporting sentence — once the badge and text wrap to separate lines (common on mobile and tablet), a leading middot read as a stray bullet rather than a separator. The pill's border already does the separating
+
+### Changed — Contact section layout
+- Channels **center-aligned**: icon now sits above the label, link, and descriptor in each column, with the section heading centered at all breakpoints
+- The availability line beneath is centered to match
+- Removed two classes left over from the previous horizontal layout (`mt-0.5` on the icons, and `min-w-0` → `max-w-full` so the long LinkedIn URL still wraps inside its column)
+
+### Changed — PDF résumé regenerated to match the site
+Source: `internal_docs/Carl_Lochstampfor_Resume_08-13-2026_v4.docx` (regenerated from v3; `internal_docs/` is gitignored, so the Word source is **not** in version control — only the exported PDF ships)
+
+- **Availability statement added** below the header links, centered in navy bold: the same sentence the site now carries. Closes the largest page/PDF gap — the PDF previously said nothing about what he's looking for
+- **`cloch001@odu.edu` added to the header** as a clickable `mailto:` (done in the v3 source). Previously the PDF carried no email at all, so a recruiter who detached it from the site had no way to reply
+- **LockBadges added** under Cybersecurity Projects, matching the Secure File Sharing entry's formatting — brings the PDF in line with the Personal Projects subsection the site has carried since v2.6.0
+- **LinkedIn hyperlink** repointed to `https://www.linkedin.com/in/carl-lochstampfor-jr1` (was `http://`)
+
+### Layout — PDF reflowed to two pages
+The additions above pushed the document to three pages, the third holding only a stray bullet and the Education block. Rather than cut content, the layout was tightened:
+
+- **Manual page break removed** before "Applied Cybersecurity Coursework" — it was forcing a hard split and, once page 1 filled, produced an entirely blank page
+- **Margins** reduced from 0.6″ to 0.5″ on all sides
+- **Section-heading lead-in** reduced from 15pt to 10pt before / 5pt to 4pt after, across all 8 headings — this reclaimed most of the needed space
+- **`KeepWithNext` applied to 25 paragraphs** (section headings, job headers, italic role subtitles, entry titles) so a heading or job title can never strand itself at the foot of a page away from its content
+- **Line spacing left at 12pt** — deliberately not tightened, since that is what keeps the document readable
+- Non-breaking space binds "May 2027" so the year never orphans onto its own line
+
+### Notes
+- PDF filename is intentionally **stable and unversioned** so `index.html` and older commits never develop dead links; which version is current is recorded here in the changelog instead. Dated copies are kept locally
+- **Version bumped to v2.8.0**
+
+---
+
 ## [2.7.0] - 2026-08-13
 
 ### Added — "Open to roles" availability statement
