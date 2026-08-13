@@ -19,6 +19,10 @@ PDF only; no change to the website. The section previously listed **results with
 - The first BlueHub bullet claimed support for "internal bank examinations and compliance audits", which does not appear anywhere in that role's LinkedIn entry — that work sits closer to the TIAA position. Replaced with the **workflow revision** the profile does describe: adapting underwriting and loan-processing to rapidly shifting economic and pandemic-driven demand
 - The role description was re-cut alongside it so the three items divide cleanly: description covers scope and mentoring, bullet one the workflow revision, bullet two the SMS platform deployment
 
+### Added — second SPOC bullet
+- The EverBank & Ditech entry carried only one bullet where every other role had two. Added the confidentiality item from the LinkedIn profile — handling sensitive financial information and legal documentation across the foreclosure lifecycle — **without the "100%" figure**, at the author's direction
+- Word's `Style` property alone does not carry list membership: the new paragraph first rendered as plain text with no bullet glyph, misaligned against its sibling. Fixed by applying the reference paragraph's `ListTemplate` via `ApplyListTemplateWithLevel` and matching its indents
+
 ### Checked and left alone
 - **Company naming** (`EverBank & TIAA Bank`, `EverBank & Ditech Financial`) differs from LinkedIn deliberately — the résumé consolidates a transfer between related employers into single entries; the author confirmed this is intentional and explainable in interview
 - **Both AmeriCorps claims** (150+ daily volunteers / 100+ completed homes, and the $1.2M project) are separate and accurate
