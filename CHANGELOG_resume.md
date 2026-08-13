@@ -4,6 +4,43 @@ All notable changes to Carl Lochstampfor's resume site are documented in this fi
 
 ---
 
+## [2.10.0] - 2026-08-13
+
+### Added — visible keyboard focus
+The single largest real barrier on the site. Only two `focus:` utilities existed, and both icon buttons carried `focus:outline-none`, which **removed** the browser default — so a keyboard or switch user had no way to see where they were.
+
+- `:focus-visible` ring on every link, button, `<summary>` and `[tabindex]`: 3px periwinkle, 2px offset. `:focus-visible` fires for keyboard/AT navigation but not mouse clicks, so pointer users see no change
+- Ring turns **gold in dark mode** — periwinkle disappears against slate, the same reason the availability badge uses gold there
+- Both `focus:outline-none` occurrences removed; they compile to `0,2,0` specificity and would have out-ranked the new ring
+
+### Added — skip link
+- "Skip to main content" as the first focusable element, off-screen until focused, targeting a new `id="main-content"` with `tabindex="-1"` on `<main>`
+- Without it, every keyboard and screen-reader user tabbed through the sticky header and all six nav links before reaching content, on every page load
+
+### Fixed — colour contrast (WCAG 1.4.3 AA)
+Ratios computed numerically against each element's effective background, not eyeballed.
+
+- **`text-slate-500` → `text-slate-600`** (14 occurrences): was **4.44:1**, failing the 4.5:1 minimum by a hair — affects arXiv IDs, venue captions, and timeline planning text. Now ~7.5:1
+- **`dark:text-slate-500` → `dark:text-slate-400`** (2): was **3.75:1** in dark mode
+- Decorative `|` separators lifted `slate-300` → `slate-400`. Still below 4.5:1 at 2.4:1, which is **not a violation** — they are `aria-hidden`, purely decorative, and exempt under 1.4.3
+
+### Fixed — heading order (WCAG 1.3.1)
+- Labs & Applied Coursework jumped **h2 → h4**, skipping a level and breaking heading-based navigation. Its four lab entries are now `h3`
+
+### Added — accessible names for non-text content
+- The skill radar chart is a `<canvas>`, opaque to assistive tech and previously **unnamed**. Now `role="img"` with a label stating the actual figures (AI/ML Research 8, Compliance 9, IR/Hardening 7, Network Security 7, AppSec 6 out of 10), so the data is conveyed rather than just the chart's existence
+- Theme toggle gained `aria-pressed` and a state-aware label that swaps between "Switch to dark mode" and "Switch to light mode" — "Toggle dark mode" never told a screen-reader user which mode was active
+
+### Verified
+Phone (390px), desktop (1280px) and dark mode all report: no horizontal overflow, no heading skips, no unnamed controls, skip link and target present, chart named. Contrast failures went **3 → 1** in light and **2 → 1** in dark, the remainder being the exempt decorative separator.
+
+### Already in place before this pass
+`lang="en"`, complete `alt` coverage, `aria-label` on icon-only controls, `aria-hidden` on decorative glyphs, `prefers-reduced-motion` honoured, semantic landmarks, `aria-expanded`/`aria-controls` on the mobile menu, and touch targets past the WCAG 2.5.8 AA minimum.
+
+- **Version bumped to v2.10.0**
+
+---
+
 ## [2.9.1] - 2026-08-13
 
 ### Changed — new header headshot
