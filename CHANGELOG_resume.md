@@ -4,6 +4,23 @@ All notable changes to Carl Lochstampfor's resume site are documented in this fi
 
 ---
 
+## [2.13.2] - 2026-08-13
+
+### Added — Platforms row in website Technical Skills
+Adding Linux surfaced a divergence: the PDF has carried a **Platforms** line all along (`Windows 10/11, Windows Server, Kali Linux, Ubuntu Linux, Debian Linux, BSD/pfSense, Home Lab Environment`) and the website had **no equivalent category at all**. Linux therefore appeared on the site only inside a coursework sentence.
+
+- New row: **Kali Linux, Ubuntu, Debian**, BSD/pfSense, Windows 10/11, Windows Server, home lab environment
+- Named distributions rather than a bare "Linux" &mdash; Kali in particular signals offensive-security tooling, and keyword scanners match the specific names
+- Placed last in the list, after Development, matching the PDF's ordering
+- Linux is now backed by evidence elsewhere on the page rather than asserted alone: `iptables` under Tools, Metasploitable and Linux baseline hardening in Labs, and the Snort sniffer deployment
+
+### Noted — dormant `Linux+ (In-Progress)` markup
+The Certifications line contains a commented-out `Linux+ (In-Progress)` entry, annotated "paused; kept for possible later resumption". Left commented: listing a paused certification as in-progress would misrepresent it. Flagged so it is not forgotten if the cert is resumed.
+
+- **Version bumped to v2.13.2**
+
+---
+
 ## [2.13.1] - 2026-08-13
 
 ### Changed — back-to-top button made less obtrusive
