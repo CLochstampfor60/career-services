@@ -23,6 +23,15 @@ PDF only; no change to the website. The section previously listed **results with
 - The EverBank & Ditech entry carried only one bullet where every other role had two. Added the confidentiality item from the LinkedIn profile — handling sensitive financial information and legal documentation across the foreclosure lifecycle — **without the "100%" figure**, at the author's direction
 - Word's `Style` property alone does not carry list membership: the new paragraph first rendered as plain text with no bullet glyph, misaligned against its sibling. Fixed by applying the reference paragraph's `ListTemplate` via `ApplyListTemplateWithLevel` and matching its indents
 
+### Changed — AmeriCorps bullet split in two
+- The single bullet carried two distinct claims (150+ daily volunteers, and 100+ homes at 98% quality). Split so each stands alone, matching the two-bullet shape of every other role
+- Cost nothing: the combined bullet wrapped to two lines, so the split occupies the same space and the document stays at two pages
+
+### Decided — job titles stay right-aligned
+- Considered switching to inline `| Job Title` on the company line. Kept right-alignment: the titles form a **scannable column** down the right edge, whereas inline each would sit at the end of a different-length line with no column to read down
+- Inline would also risk wrapping — the Cardinal Housing line would run ~106 characters, right at the limit, so one entry would wrap while the others did not
+- A pipe would additionally flatten hierarchy, reading the most important field in the block as one more piece of metadata after location and dates
+
 ### Checked and left alone
 - **Company naming** (`EverBank & TIAA Bank`, `EverBank & Ditech Financial`) differs from LinkedIn deliberately — the résumé consolidates a transfer between related employers into single entries; the author confirmed this is intentional and explainable in interview
 - **Both AmeriCorps claims** (150+ daily volunteers / 100+ completed homes, and the $1.2M project) are separate and accurate
