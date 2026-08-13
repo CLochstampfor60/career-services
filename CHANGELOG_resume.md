@@ -4,6 +4,30 @@ All notable changes to Carl Lochstampfor's resume site are documented in this fi
 
 ---
 
+## [2.11.0] - 2026-08-13
+
+### Changed — website Professional Experience expanded
+Establishes the intended division of depth: **PDF is constrained to two pages, the website carries what will not fit there, LinkedIn holds the most.** Achievements appear in both; description is where the site goes further.
+
+- **Role description added under every job**, matching the PDF but written longer — the site has no page budget
+- **Bullets rebuilt from the LinkedIn profile**, going from 13 to **20** across the five roles, adding material the PDF has no room for: the three-property portfolio, acquisition and market-cycle research, 24-hour on-call response, coordination with legal counsel and financial institutions, the legal↔business interface on liquidation and mediation, and the 97% project completion time
+- Descriptions use `text-slate-600 / dark:text-slate-400`, matching the contrast floor set in v2.10.0
+
+### Fixed — inaccurate and inconsistent entries
+- **Removed the BlueHub "internal bank examinations & compliance audits" bullet**, the same claim struck from the PDF in v2.10.1 — nothing in that role's profile mentions examinations or audits, and the work sits closer to the TIAA position
+- **Capitalisation corrected**: `Everbank` → `EverBank`, `Americorps Habitat For Humanity` → `AmeriCorps Habitat for Humanity`
+- **Cardinal Housing title aligned to the PDF**: `Estate Fiduciary` → `Property Management & Estate Fiduciary`
+
+### Dropped — needs confirmation
+- The old SPOC bullet **"Maintained 99% quality score on monitoring reports"** does not appear in the LinkedIn entry and was not carried over. If the figure is accurate it should be restored; it was removed for lack of a source, not because it is wrong
+
+### Verified
+390px and 1280px, light and dark: no horizontal overflow, no heading skips, **zero contrast failures** in the rewritten section, 5 roles / 20 bullets / 5 descriptions.
+
+- **Version bumped to v2.11.0**
+
+---
+
 ## [2.10.1] - 2026-08-13
 
 ### Changed — PDF Professional Experience: inline job titles + role descriptions
