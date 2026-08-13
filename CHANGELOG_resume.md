@@ -4,6 +4,28 @@ All notable changes to Carl Lochstampfor's resume site are documented in this fi
 
 ---
 
+## [2.12.1] - 2026-08-13
+
+### Changed — PDF Work Experience: platform stack in, LockBadges out
+The PDF had **zero lines of slack** (2.5pt free on page 2), so every addition had to be paid for. Audited against the reframed website and traded the weakest content for the strongest.
+
+**Removed**
+- **LockBadges project (5 lines)** — the fourth and weakest technical artifact behind COVA, COVA&#8209;X, ScamLingua and the Secure File Sharing System, and the longest single block on page 1. It remains in full on the website, which the PDF links to
+- **Cardinal bullet duplicating its own description** — both stated the portfolio and the two estates
+- Filler clauses from two bullets ("through workflow optimization", "while handling…throughout the foreclosure lifecycle")
+
+**Added**
+- **Regulated platform stack**: HUD/FHA (EVARS), VA (VALERI), FNMA HSSN, FHLMC Workout Prospector, CAIVRS, Black&#8209;Knight/MSP, PACER, LexisNexis. The single strongest technical credential in the work history and previously absent from the PDF entirely — access-controlled federal and investor systems handling financial PII, which is far better evidence of regulated-systems experience than the student-lab tools listed under Technical Skills
+- **Mediation and court proceedings**: representation of the bank's foreclosure team in hearings alongside borrowers' counsel and presiding judges, validating court-ordered requests and obtaining bankruptcy approvals
+- **Incident response and vendor management** under Cardinal, replacing the redundant bullet
+
+### Pagination note
+A first attempt spilled to three pages despite freeing more lines than it spent. Cause: **EDUCATION is a four-line block with `KeepWithNext` throughout**, so it cannot split across pages — being one line over pushed the entire block to page 3, leaving page 2 short. Trimming two filler clauses pulled it back. Ends with 1 line of slack.
+
+- **Version bumped to v2.12.1**
+
+---
+
 ## [2.12.0] - 2026-08-13
 
 ### Changed — Work Experience reframed toward technical relevance
