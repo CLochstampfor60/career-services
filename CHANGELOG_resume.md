@@ -4,6 +4,19 @@ All notable changes to Carl Lochstampfor's resume site are documented in this fi
 
 ---
 
+## [2.11.2] - 2026-08-13
+
+### Restored — BlueHub compliance bullet (earlier removal was wrong)
+- v2.10.1 and v2.11.0 removed the claim that he "assisted in compliance matters such as bank exams and audits", on the grounds that it appears nowhere in the LinkedIn entry
+- **That reasoning was wrong.** The 2023 résumé states it directly: *"Assisted in compliance matters, such as bank exams and audits, to protect the financial interests of the company, its investors, and clients."* LinkedIn is simply an abridged record, not the authoritative one
+- Restored to both the website and the PDF. To fit it inside two pages, the workflow bullet was tightened from two lines to one, trading a clause for a genuine claim
+- Lesson recorded: absence from one source is not evidence a claim is false — check the others before cutting
+
+### Decided — Primerica Financial Services (2014–2017) stays off
+- Present in the 2023 résumé as Independent Sales Agent, deliberately excluded: the author considers it a failed opportunity with no relevance to technical roles, and is content to explain the gap directly if asked
+
+---
+
 ## [2.11.1] - 2026-08-13
 
 ### Fixed — social links bar alignment
