@@ -49,6 +49,21 @@ This repository is more than a static document; it is a hardened, search-optimiz
 
 ---
 
+## 📄 Résumé Files
+
+| Path | Purpose |
+| --- | --- |
+| `docs/Carl_Lochstampfor_Resume.pdf` | The published PDF — what the header download button serves. Publicly reachable. |
+| `_source/Carl_Lochstampfor_Resume.docx` | The Word source the PDF is exported from. Tracked, but **not** published. |
+
+Both use a stable, unversioned filename so links never break; the changelog records which version is current.
+
+> **⚠️ Do not add a `.nojekyll` file to this repo.** GitHub Pages serves it through Jekyll, which ignores any path beginning with an underscore — that is the only thing keeping `_source/` (the editable résumé, with its document metadata) from being publicly downloadable. Adding `.nojekyll` would silently publish it.
+
+When updating résumé content: edit `_source/`, export a fresh PDF over `docs/`, and commit both together.
+
+---
+
 ## ⚖️ License
 
 - This project is licensed under the terms of the **MIT license**.
