@@ -11,8 +11,9 @@ PDF only; no change to the website. The section previously listed **results with
 
 - **Job title moved onto the company line**, right-aligned to the margin via a right tab stop at 540pt, in italic — e.g. `Cardinal Housing, LLC | Jacksonville, FL | 2012 – 2024 (Closed)` … `Property Management and Estate Fiduciary`
 - The freed line beneath each job now carries a **one-line role description**, so the layout cost is zero: the title vacated that line rather than the document growing into it
-- Descriptions are **drawn from the website's experience copy**, deliberately favouring detail that was *on the site but absent from the PDF bullets* — loan-origination workflow redesign, the SPOC role, financial wellness coaching — so they set scope instead of restating achievements
-- A first draft was discarded for doing exactly that: it opened BlueHub with "supporting internal bank examinations and compliance audits", which is almost verbatim that job's first bullet
+- Descriptions were then **rewritten from the LinkedIn profile detail** the user supplied — paraphrased, not copied — which is richer than either the site or the PDF: the three-property portfolio, 24-hour on-call response, pandemic-shifted lending conditions, mentoring new underwriters, the legal/business interface, and the $1.2M build
+- Each is held to **one line**. A first pass at fuller descriptions wrapped all five to two lines and pushed the document to three pages; they were trimmed to ~105 characters rather than losing a page
+- Two earlier drafts were discarded for restating the bullets instead of setting scope — one opened BlueHub with almost the exact wording of that job's first bullet
 
 ### Notes
 - Still **two pages**, with roughly 3–4 lines of slack left on page 2 if any description should be expanded
