@@ -4,6 +4,31 @@ All notable changes to Carl Lochstampfor's resume site are documented in this fi
 
 ---
 
+## [2.12.0] - 2026-08-13
+
+### Changed — Work Experience reframed toward technical relevance
+Rewritten on one rule: **earn the vocabulary from the domain, never borrow it.** The prior site copy had drifted into security language the work did not support (a build site described as requiring "role separation" and "controlled access to shared resources"). That framing was removed. What replaced it is the domain's own vocabulary, which is stronger evidence and literally true.
+
+- **OCC Consent Orders, Fair Lending, investor approval matrices, state and federal guidelines** &rarr; named as what they are: regulatory compliance operating under federal consent decree
+- **EVARS (HUD/FHA), VALERI (VA), FNMA HSSN, FHLMC Workout Prospector, CAIVRS, Black&#8209;Knight/MSP, PACER, SCRA, LexisNexis** &rarr; surfaced as a bullet of its own. These are access-controlled government and investor platforms handling financial PII; naming them is far better evidence of regulated-systems experience than any adjective
+- **Encompass** loan-origination platform revision &rarr; system configuration and process change
+- **Validating court-ordered requests, bankruptcy approvals, quality monitoring** &rarr; verification and validation controls
+- **24-hour on-call for critical failures** &rarr; incident response and availability, which is simply the correct term
+- **Tenant, borrower and estate records** &rarr; confidentiality and data integrity, since this is literally PII handling
+- **Contractor and third-party selection and oversight** &rarr; vendor management
+
+Bullets grew from 21 to **26**. AmeriCorps was deliberately left in plain language &mdash; leadership, quality, safety, coaching &mdash; because that is where the earlier inflation happened and no technical reading is honest there.
+
+### Verified
+390px and 1280px, light and dark: no horizontal overflow, no heading skips, **zero contrast failures**.
+
+### Rollback
+Tag **`pre-reframe`** (`39a0634`) marks the literal, source-verified version immediately before this change: `git checkout pre-reframe -- index.html`.
+
+- **Version bumped to v2.12.0**
+
+---
+
 ## [2.11.2] - 2026-08-13
 
 ### Restored — BlueHub compliance bullet (earlier removal was wrong)
