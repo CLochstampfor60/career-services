@@ -294,32 +294,41 @@
 <body class="text-slate-800 dark:text-slate-200">
 
     <header class="sticky top-0 z-50 bg-white dark:bg-slate-900 shadow-md border-b dark:border-slate-800">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-4 flex flex-col md:flex-row justify-between items-center">
-            <div class="flex items-center gap-4 justify-center md:justify-start">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-3 lg:py-4 flex flex-row justify-between items-center gap-3">
+            <div class="flex items-center gap-3 lg:gap-4 min-w-0">
                 <picture>
                     <source srcset="Images/headshot.webp" type="image/webp">
-                    <img src="Images/headshot.png" alt="Carl Lochstampfor, Jr." 
-                         class="w-16 h-16 md:w-20 md:h-20 rounded-full border-2 border-gold-400 dark:border-gold-300 shadow-lg"
+                    <img src="Images/headshot.png" alt="Carl Lochstampfor, Jr."
+                         class="w-11 h-11 lg:w-20 lg:h-20 rounded-full border-2 border-gold-400 dark:border-gold-300 shadow-lg"
                          width="80" height="80" loading="eager">
                 </picture>
-                <div class="flex flex-col items-center md:items-start gap-2">
-                    <h1 class="text-2xl md:text-3xl font-extrabold text-navy dark:text-blue-400 tracking-tight text-center md:text-left uppercase">Carl Lochstampfor, Jr.</h1>
+                <div class="min-w-0 flex flex-col items-start gap-2">
+                    <h1 class="text-base sm:text-xl lg:text-3xl font-extrabold text-navy dark:text-blue-400 tracking-tight text-left uppercase">Carl Lochstampfor, Jr.</h1>
                     <a href="docs/Carl_Lochstampfor_Resume.pdf" download
-                       class="no-print inline-flex items-center gap-1.5 px-3 py-1.5 rounded-lg border border-[#1E3A5F] dark:border-blue-400 text-[#1E3A5F] dark:text-blue-300 text-sm font-semibold hover:bg-[#1E3A5F] hover:text-white dark:hover:bg-blue-400 dark:hover:text-slate-900 transition">
+                       class="no-print hidden lg:inline-flex items-center gap-1.5 px-3 py-2.5 rounded-lg border border-[#1E3A5F] dark:border-blue-400 text-[#1E3A5F] dark:text-blue-300 text-sm font-semibold hover:bg-[#1E3A5F] hover:text-white dark:hover:bg-blue-400 dark:hover:text-slate-900 transition">
                         📄 Download Résumé (PDF)
                     </a>
                 </div>
             </div>
-            <div class="flex items-center space-x-6 mt-3 md:mt-0">
-                <nav class="space-x-4 flex flex-wrap justify-center no-print" aria-label="Primary Navigation">
-                    <a href="#summary" class="nav-link text-sm font-semibold hover:text-blue-600 dark:hover:text-blue-400 text-slate-700 dark:text-slate-300">Summary</a>
-                    <a href="#research" class="nav-link text-sm font-semibold hover:text-purple-600 dark:hover:text-purple-400 text-slate-700 dark:text-slate-300">Research</a>
-                    <a href="#skills" class="nav-link text-sm font-semibold hover:text-blue-600 dark:hover:text-blue-400 text-slate-700 dark:text-slate-300">Skills</a>
-                    <a href="#projects" class="nav-link text-sm font-semibold hover:text-blue-600 dark:hover:text-blue-400 text-slate-700 dark:text-slate-300">Projects</a>
-                    <a href="#experience" class="nav-link text-sm font-semibold hover:text-blue-600 dark:hover:text-blue-400 text-slate-700 dark:text-slate-300">Experience</a>
-                    <a href="#contact" class="nav-link text-sm font-semibold hover:text-blue-600 dark:hover:text-blue-400 text-slate-700 dark:text-slate-300">Contact</a>
+            <div class="flex items-center gap-2 lg:gap-6 flex-shrink-0">
+                <button id="menuToggle" type="button" aria-expanded="false" aria-controls="primaryNav" aria-label="Open navigation menu"
+                        class="lg:hidden no-print w-11 h-11 inline-flex items-center justify-center rounded-full bg-slate-100 dark:bg-slate-800 text-slate-700 dark:text-slate-200 hover:ring-2 hover:ring-blue-400 transition-all focus:outline-none shadow-sm">
+                    <svg id="menuIconOpen" class="w-5 h-5" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" d="M4 6h16M4 12h16M4 18h16"></path></svg>
+                    <svg id="menuIconClose" class="w-5 h-5 hidden" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12"></path></svg>
+                </button>
+                <nav id="primaryNav" class="hidden lg:flex lg:items-center lg:space-x-4 no-print absolute lg:static top-full left-0 right-0 flex-col lg:flex-row bg-white dark:bg-slate-900 lg:bg-transparent border-b lg:border-b-0 border-slate-200 dark:border-slate-800 shadow-lg lg:shadow-none px-4 lg:px-0 py-2 lg:py-0" aria-label="Primary Navigation">
+                    <a href="#summary" class="nav-link block lg:inline-block px-3 lg:px-0 py-3 lg:py-2 rounded-lg hover:bg-slate-100 dark:hover:bg-slate-800 lg:hover:bg-transparent text-sm font-semibold hover:text-blue-600 dark:hover:text-blue-400 text-slate-700 dark:text-slate-300">Summary</a>
+                    <a href="#research" class="nav-link block lg:inline-block px-3 lg:px-0 py-3 lg:py-2 rounded-lg hover:bg-slate-100 dark:hover:bg-slate-800 lg:hover:bg-transparent text-sm font-semibold hover:text-purple-600 dark:hover:text-purple-400 text-slate-700 dark:text-slate-300">Research</a>
+                    <a href="#skills" class="nav-link block lg:inline-block px-3 lg:px-0 py-3 lg:py-2 rounded-lg hover:bg-slate-100 dark:hover:bg-slate-800 lg:hover:bg-transparent text-sm font-semibold hover:text-blue-600 dark:hover:text-blue-400 text-slate-700 dark:text-slate-300">Skills</a>
+                    <a href="#projects" class="nav-link block lg:inline-block px-3 lg:px-0 py-3 lg:py-2 rounded-lg hover:bg-slate-100 dark:hover:bg-slate-800 lg:hover:bg-transparent text-sm font-semibold hover:text-blue-600 dark:hover:text-blue-400 text-slate-700 dark:text-slate-300">Projects</a>
+                    <a href="#experience" class="nav-link block lg:inline-block px-3 lg:px-0 py-3 lg:py-2 rounded-lg hover:bg-slate-100 dark:hover:bg-slate-800 lg:hover:bg-transparent text-sm font-semibold hover:text-blue-600 dark:hover:text-blue-400 text-slate-700 dark:text-slate-300">Experience</a>
+                    <a href="#contact" class="nav-link block lg:inline-block px-3 lg:px-0 py-3 lg:py-2 rounded-lg hover:bg-slate-100 dark:hover:bg-slate-800 lg:hover:bg-transparent text-sm font-semibold hover:text-blue-600 dark:hover:text-blue-400 text-slate-700 dark:text-slate-300">Contact</a>
+                    <a href="docs/Carl_Lochstampfor_Resume.pdf" download
+                       class="lg:hidden mt-2 mb-1 flex items-center justify-center gap-1.5 px-3 py-3 rounded-lg border border-[#1E3A5F] dark:border-blue-400 text-[#1E3A5F] dark:text-blue-300 text-sm font-semibold">
+                        📄 Download Résumé (PDF)
+                    </a>
                 </nav>
-                <button id="themeToggle" aria-label="Toggle dark mode" class="no-print p-2.5 rounded-full bg-slate-100 dark:bg-slate-800 text-slate-600 dark:text-slate-300 hover:ring-2 hover:ring-blue-400 transition-all focus:outline-none shadow-sm" title="Toggle Theme">
+                <button id="themeToggle" aria-label="Toggle dark mode" class="no-print w-11 h-11 inline-flex items-center justify-center rounded-full bg-slate-100 dark:bg-slate-800 text-slate-600 dark:text-slate-300 hover:ring-2 hover:ring-blue-400 transition-all focus:outline-none shadow-sm" title="Toggle Theme">
                     <svg id="sunIcon" class="w-5 h-5 hidden" fill="currentColor" viewBox="0 0 20 20"><path d="M10 2a1 1 0 011 1v1a1 1 0 11-2 0V3a1 1 0 011-1zm4 8a4 4 0 11-8 0 4 4 0 018 0zm-.464 4.95l.707.707a1 1 0 001.414-1.414l-.707-.707a1 1 0 00-1.414 1.414zm2.12-10.607a1 1 0 010 1.414l-.706.707a1 1 0 11-1.414-1.414l.707-.707a1 1 0 011.414 0zM17 11a1 1 0 100-2h-1a1 1 0 100 2h1zm-7 4a1 1 0 011 1v1a1 1 0 11-2 0v-1a1 1 0 011-1zM5.05 6.464A1 1 0 106.464 5.05l-.707-.707a1 1 0 00-1.414 1.414l.707.707zm1.414 8.486l-.707.707a1 1 0 01-1.414-1.414l.707-.707a1 1 0 011.414 1.414zM4 11a1 1 0 100-2H3a1 1 0 000 2h1z" fill-rule="evenodd" clip-rule="evenodd"></path></svg>
                     <svg id="moonIcon" class="w-5 h-5" fill="currentColor" viewBox="0 0 20 20"><path d="M17.293 13.293A8 8 0 016.707 2.707a8.001 8.001 0 1010.586 10.586z"></path></svg>
                 </button>
@@ -332,17 +341,17 @@
         <!-- Social Links Bar -->
         <section class="mb-8 border-b dark:border-slate-800 pb-4">
             <div class="flex flex-wrap gap-4 text-sm text-slate-600 dark:text-slate-400 justify-center md:justify-start">
-                <a href="https://www.linkedin.com/in/carl-lochstampfor-jr1" target="_blank" rel="noopener noreferrer" class="hover:text-blue-600 font-semibold transition">LinkedIn</a>
-                <span class="text-slate-300 dark:text-slate-600">|</span>
-                <a href="https://github.com/CLochstampfor60" target="_blank" rel="noopener noreferrer" class="hover:text-slate-900 dark:hover:text-white font-semibold transition">GitHub</a>
-                <span class="text-slate-300 dark:text-slate-600">|</span>
-                <a href="https://www.researchgate.net/profile/Carl-Lochstampfor" target="_blank" rel="noopener noreferrer" class="hover:text-teal-600 font-semibold transition">ResearchGate</a>
-                <span class="text-slate-300 dark:text-slate-600">|</span>
-                <a href="https://scamlingua.org" target="_blank" rel="noopener noreferrer" class="hover:text-purple-600 font-semibold transition">ScamLingua.org</a>
-                <span class="text-slate-300 dark:text-slate-600">|</span>
-                <a href="https://sites.wp.odu.edu/locky/" target="_blank" rel="noopener noreferrer" class="hover:text-purple-600 font-semibold transition">ODU Portfolio</a>
-                <span class="text-slate-300 dark:text-slate-600">|</span>
-                <span class="text-slate-900 dark:text-slate-100 font-semibold">e-Resume v2.8.1</span>
+                <a href="https://www.linkedin.com/in/carl-lochstampfor-jr1" target="_blank" rel="noopener noreferrer" class="inline-block py-2 hover:text-blue-600 font-semibold transition">LinkedIn</a>
+                <span class="hidden sm:inline text-slate-300 dark:text-slate-600" aria-hidden="true">|</span>
+                <a href="https://github.com/CLochstampfor60" target="_blank" rel="noopener noreferrer" class="inline-block py-2 hover:text-slate-900 dark:hover:text-white font-semibold transition">GitHub</a>
+                <span class="hidden sm:inline text-slate-300 dark:text-slate-600" aria-hidden="true">|</span>
+                <a href="https://www.researchgate.net/profile/Carl-Lochstampfor" target="_blank" rel="noopener noreferrer" class="inline-block py-2 hover:text-teal-600 font-semibold transition">ResearchGate</a>
+                <span class="hidden sm:inline text-slate-300 dark:text-slate-600" aria-hidden="true">|</span>
+                <a href="https://scamlingua.org" target="_blank" rel="noopener noreferrer" class="inline-block py-2 hover:text-purple-600 font-semibold transition">ScamLingua.org</a>
+                <span class="hidden sm:inline text-slate-300 dark:text-slate-600" aria-hidden="true">|</span>
+                <a href="https://sites.wp.odu.edu/locky/" target="_blank" rel="noopener noreferrer" class="inline-block py-2 hover:text-purple-600 font-semibold transition">ODU Portfolio</a>
+                <span class="hidden sm:inline text-slate-300 dark:text-slate-600" aria-hidden="true">|</span>
+                <span class="text-slate-900 dark:text-slate-100 font-semibold">e-Resume v2.9.0</span>
             </div>
         </section>
 
@@ -427,7 +436,7 @@
 
                             <!-- Technical Details Accordion -->
                             <details class="research-details mt-4 border-t border-purple-200/60 dark:border-purple-800/50 pt-3">
-                                <summary class="flex items-center gap-2 text-sm md:text-lg font-semibold text-purple-800 dark:text-purple-300 select-none hover:text-purple-600 dark:hover:text-purple-200 transition">
+                                <summary class="flex items-center gap-2 py-3 text-sm md:text-lg font-semibold text-purple-800 dark:text-purple-300 select-none hover:text-purple-600 dark:hover:text-purple-200 transition">
                                     <span class="chevron text-purple-500 dark:text-purple-400">▶</span>
                                     Technical Details
                                 </summary>
@@ -485,8 +494,8 @@
                                                     <img src="Images/cova_workflow/cova_sample_dialogue_bank.png" alt="Sample generated bank scam conversation (turns 0-5) in which a skeptical victim persona resists the attacker's social engineering" loading="lazy" class="w-full h-auto object-contain bg-slate-800">
                                                     <div class="bg-slate-900/80 text-white p-2 text-xs italic text-center">Sample output: skeptical victim resists social engineering</div>
                                                 </div>
-                                                <button type="button" onclick="moveCarousel('covaCarousel', -1)" aria-label="Previous screenshot" class="absolute left-2 top-1/2 -translate-y-1/2 bg-white/20 hover:bg-white/40 text-white p-2 rounded-full transition font-bold no-print">❮</button>
-                                                <button type="button" onclick="moveCarousel('covaCarousel', 1)" aria-label="Next screenshot" class="absolute right-2 top-1/2 -translate-y-1/2 bg-white/20 hover:bg-white/40 text-white p-2 rounded-full transition font-bold no-print">❯</button>
+                                                <button type="button" onclick="moveCarousel('covaCarousel', -1)" aria-label="Previous screenshot" class="absolute left-2 top-1/2 -translate-y-1/2 bg-white/20 hover:bg-white/40 text-white w-11 h-11 inline-flex items-center justify-center rounded-full transition font-bold no-print">❮</button>
+                                                <button type="button" onclick="moveCarousel('covaCarousel', 1)" aria-label="Next screenshot" class="absolute right-2 top-1/2 -translate-y-1/2 bg-white/20 hover:bg-white/40 text-white w-11 h-11 inline-flex items-center justify-center rounded-full transition font-bold no-print">❯</button>
                                             </div>
                                             <p class="text-xs text-slate-500 dark:text-slate-400 mt-2 italic text-center">Live pipeline screenshots: generation → sample dialogue</p>
                                         </div>
@@ -499,7 +508,7 @@
                             </details>
                         </div>
                         <div class="flex flex-col gap-2 no-print">
-                            <a href="https://arxiv.org/abs/2604.11752" target="_blank" rel="noopener noreferrer" class="inline-flex items-center justify-center px-4 py-2 bg-purple-700 text-white rounded-lg font-semibold text-sm hover:bg-purple-800 transition shadow-sm">
+                            <a href="https://arxiv.org/abs/2604.11752" target="_blank" rel="noopener noreferrer" class="inline-flex items-center justify-center px-4 py-3 bg-purple-700 text-white rounded-lg font-semibold text-sm hover:bg-purple-800 transition shadow-sm">
                                 📎 View on arXiv
                             </a>
                         </div>
@@ -534,7 +543,7 @@
 
                             <!-- Technical Details Accordion -->
                             <details class="research-details mt-4 border-t border-purple-200/60 dark:border-purple-800/50 pt-3">
-                                <summary class="flex items-center gap-2 text-sm md:text-lg font-semibold text-purple-800 dark:text-purple-300 select-none hover:text-purple-600 dark:hover:text-purple-200 transition">
+                                <summary class="flex items-center gap-2 py-3 text-sm md:text-lg font-semibold text-purple-800 dark:text-purple-300 select-none hover:text-purple-600 dark:hover:text-purple-200 transition">
                                     <span class="chevron text-purple-500 dark:text-purple-400">▶</span>
                                     Technical Details
                                 </summary>
@@ -582,8 +591,8 @@
                                                     <img src="Images/cova_workflow/cova_dataset_complete.png" alt="COVA dataset status report showing a total of 10,995 conversations across 8 fraud categories (romance, government impersonation, medicare, virtual kidnapping, grandparent, bank, lottery, investment), scanned 2026-07-22" loading="lazy" class="w-full h-auto object-contain bg-slate-800">
                                                     <div class="bg-slate-900/80 text-white p-2 text-xs italic text-center">Final dataset: 10,995 conversations across 8 fraud categories</div>
                                                 </div>
-                                                <button type="button" onclick="moveCarousel('covaxCarousel', -1)" aria-label="Previous screenshot" class="absolute left-2 top-1/2 -translate-y-1/2 bg-white/20 hover:bg-white/40 text-white p-2 rounded-full transition font-bold no-print">❮</button>
-                                                <button type="button" onclick="moveCarousel('covaxCarousel', 1)" aria-label="Next screenshot" class="absolute right-2 top-1/2 -translate-y-1/2 bg-white/20 hover:bg-white/40 text-white p-2 rounded-full transition font-bold no-print">❯</button>
+                                                <button type="button" onclick="moveCarousel('covaxCarousel', -1)" aria-label="Previous screenshot" class="absolute left-2 top-1/2 -translate-y-1/2 bg-white/20 hover:bg-white/40 text-white w-11 h-11 inline-flex items-center justify-center rounded-full transition font-bold no-print">❮</button>
+                                                <button type="button" onclick="moveCarousel('covaxCarousel', 1)" aria-label="Next screenshot" class="absolute right-2 top-1/2 -translate-y-1/2 bg-white/20 hover:bg-white/40 text-white w-11 h-11 inline-flex items-center justify-center rounded-full transition font-bold no-print">❯</button>
                                             </div>
                                             <p class="text-xs text-slate-500 dark:text-slate-400 mt-2 italic text-center">Scaling &amp; QA screenshots: quality scan → final dataset</p>
                                         </div>
@@ -596,7 +605,7 @@
                             </details>
                         </div>
                         <div class="flex flex-col gap-2 no-print">
-                            <a href="https://arxiv.org/abs/2606.06879" target="_blank" rel="noopener noreferrer" class="inline-flex items-center justify-center px-4 py-2 bg-purple-700 text-white rounded-lg font-semibold text-sm hover:bg-purple-800 transition shadow-sm">
+                            <a href="https://arxiv.org/abs/2606.06879" target="_blank" rel="noopener noreferrer" class="inline-flex items-center justify-center px-4 py-3 bg-purple-700 text-white rounded-lg font-semibold text-sm hover:bg-purple-800 transition shadow-sm">
                                 📎 View on arXiv
                             </a>
                         </div>
@@ -626,10 +635,10 @@
                             </div>
                         </div>
                         <div class="flex flex-col gap-2 no-print">
-                            <a href="https://scamlingua.org" target="_blank" rel="noopener noreferrer" class="inline-flex items-center justify-center px-4 py-2 bg-indigo-700 text-white rounded-lg font-semibold text-sm hover:bg-indigo-800 transition shadow-sm">
+                            <a href="https://scamlingua.org" target="_blank" rel="noopener noreferrer" class="inline-flex items-center justify-center px-4 py-3 bg-indigo-700 text-white rounded-lg font-semibold text-sm hover:bg-indigo-800 transition shadow-sm">
                                 🔗 Visit ScamLingua
                             </a>
-                            <a href="https://github.com/CLochstampfor60/scamlingua-site" target="_blank" rel="noopener noreferrer" class="inline-flex items-center justify-center px-4 py-2 bg-slate-700 text-white rounded-lg font-semibold text-sm hover:bg-slate-800 transition shadow-sm">
+                            <a href="https://github.com/CLochstampfor60/scamlingua-site" target="_blank" rel="noopener noreferrer" class="inline-flex items-center justify-center px-4 py-3 bg-slate-700 text-white rounded-lg font-semibold text-sm hover:bg-slate-800 transition shadow-sm">
                                 📂 Source Code
                             </a>
                         </div>
@@ -873,8 +882,8 @@
                                     <div class="bg-slate-900/80 text-white p-3 text-xs italic text-center">Step 8: ACCESS PROOF - Server enforcing user-specific directory isolation (DAC)</div>
                                 </div>
                             </div>
-                            <button onclick="moveSlide(-1)" aria-label="Previous Slide" class="absolute left-2 top-1/2 -translate-y-1/2 bg-white/20 hover:bg-white/40 text-white p-3 rounded-full transition font-bold no-print">❮</button>
-                            <button onclick="moveSlide(1)" aria-label="Next Slide" class="absolute right-2 top-1/2 -translate-y-1/2 bg-white/20 hover:bg-white/40 text-white p-3 rounded-full transition font-bold no-print">❯</button>
+                            <button onclick="moveSlide(-1)" aria-label="Previous Slide" class="absolute left-2 top-1/2 -translate-y-1/2 bg-white/20 hover:bg-white/40 text-white w-11 h-11 inline-flex items-center justify-center rounded-full transition font-bold no-print">❮</button>
+                            <button onclick="moveSlide(1)" aria-label="Next Slide" class="absolute right-2 top-1/2 -translate-y-1/2 bg-white/20 hover:bg-white/40 text-white w-11 h-11 inline-flex items-center justify-center rounded-full transition font-bold no-print">❯</button>
                         </div>
 
                         <div class="space-y-4 text-sm text-slate-700 dark:text-slate-300">
@@ -901,7 +910,7 @@
                         </div>
 
                         <div class="mt-4 text-center md:text-left no-print">
-                            <a href="https://github.com/CLochstampfor60/file_system_project" target="_blank" rel="noopener noreferrer" class="inline-flex items-center px-4 py-2 bg-blue-700 text-white rounded font-bold text-sm hover:bg-blue-800 transition shadow-sm">
+                            <a href="https://github.com/CLochstampfor60/file_system_project" target="_blank" rel="noopener noreferrer" class="inline-flex items-center px-4 py-3 bg-blue-700 text-white rounded font-bold text-sm hover:bg-blue-800 transition shadow-sm">
                                 📎 View Source Code on GitHub
                             </a>
                         </div>
@@ -929,7 +938,7 @@
                                     <p>Movable, translucent on-screen indicators for Caps Lock, Num Lock, Scroll Lock, and Mute — built for keyboards that ship without status LEDs. Each badge is independently positioned, styled, and configured through a full settings GUI, renders click-through, and hides automatically during fullscreen apps.</p>
                                     <p><strong class="font-bold">Privacy by construction:</strong> lock state is read from Windows toggle bits rather than a keyboard hook, so keystrokes are never intercepted — with no network access, no telemetry, and no logging.</p>
                                     <div class="no-print">
-                                        <a href="https://github.com/CLochstampfor60/LockBadges" target="_blank" rel="noopener noreferrer" class="inline-flex items-center px-3 py-1.5 bg-slate-700 text-white rounded font-bold text-xs hover:bg-slate-800 transition shadow-sm">
+                                        <a href="https://github.com/CLochstampfor60/LockBadges" target="_blank" rel="noopener noreferrer" class="inline-flex items-center px-3 py-3 bg-slate-700 text-white rounded font-bold text-xs hover:bg-slate-800 transition shadow-sm">
                                             📎 View on GitHub
                                         </a>
                                     </div>
@@ -1025,7 +1034,7 @@
                         <svg class="w-5 h-5 flex-shrink-0 text-blue-700 dark:text-blue-400" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"></path></svg>
                         <div class="max-w-full">
                             <div class="text-xs font-bold uppercase tracking-wide text-slate-500 dark:text-slate-400">LinkedIn</div>
-                            <a href="https://www.linkedin.com/in/carl-lochstampfor-jr1" target="_blank" rel="noopener noreferrer" class="contact-link text-sm font-semibold text-slate-800 dark:text-slate-100 hover:text-blue-600 dark:hover:text-blue-400 transition break-all">www.linkedin.com/in/carl-lochstampfor-jr1</a>
+                            <a href="https://www.linkedin.com/in/carl-lochstampfor-jr1" target="_blank" rel="noopener noreferrer" class="contact-link inline-block py-2 text-sm font-semibold text-slate-800 dark:text-slate-100 hover:text-blue-600 dark:hover:text-blue-400 transition break-all">www.linkedin.com/in/carl-lochstampfor-jr1</a>
                             <p class="text-xs text-gray-600 dark:text-gray-400 mt-1">Professional inquiries</p>
                         </div>
                     </div>
@@ -1034,7 +1043,7 @@
                         <svg class="w-5 h-5 flex-shrink-0 text-periwinkle-600 dark:text-periwinkle-400" fill="currentColor" viewBox="0 0 20 20" aria-hidden="true"><path fill-rule="evenodd" d="M7 2a1 1 0 00-.707 1.707L7 4.414v3.758a1 1 0 01-.293.707l-4 4C.817 14.769 2.156 18 4.828 18h10.343c2.673 0 4.012-3.231 2.122-5.121l-4-4A1 1 0 0113 8.172V4.414l.707-.707A1 1 0 0013 2H7zm2 6.172V4h2v4.172a3 3 0 00.879 2.12l1.027 1.028a4 4 0 00-2.171.102l-.47.156a4 4 0 01-2.53 0l-.563-.187a1.993 1.993 0 00-.114-.035l1.063-1.063A3 3 0 009 8.172z" clip-rule="evenodd"></path></svg>
                         <div class="max-w-full">
                             <div class="text-xs font-bold uppercase tracking-wide text-slate-500 dark:text-slate-400">Research</div>
-                            <a href="mailto:contact@scamlingua.org" class="contact-link text-sm font-semibold text-slate-800 dark:text-slate-100 hover:text-purple-600 dark:hover:text-purple-400 transition break-all">contact@scamlingua.org</a>
+                            <a href="mailto:contact@scamlingua.org" class="contact-link inline-block py-2 text-sm font-semibold text-slate-800 dark:text-slate-100 hover:text-purple-600 dark:hover:text-purple-400 transition break-all">contact@scamlingua.org</a>
                             <p class="text-xs text-gray-600 dark:text-gray-400 mt-1">COVA datasets &amp; ScamLingua</p>
                         </div>
                     </div>
@@ -1043,7 +1052,7 @@
                         <svg class="w-5 h-5 flex-shrink-0 text-[#A16207] dark:text-[#DDB44A]" fill="currentColor" viewBox="0 0 20 20" aria-hidden="true"><path d="M10.394 2.08a1 1 0 00-.788 0l-7 3a1 1 0 000 1.84L5.25 8.051a.999.999 0 01.356-.257l4-1.714a1 1 0 11.788 1.838L7.667 9.088l1.94.831a1 1 0 00.787 0l7-3a1 1 0 000-1.838l-7-3zM3.31 9.397L5 10.12v4.102a8.969 8.969 0 00-1.05-.174 1 1 0 01-.89-.89 11.115 11.115 0 01.25-3.762zM9.3 16.573A9.026 9.026 0 007 14.935v-3.957l1.818.78a3 3 0 002.364 0l5.508-2.361a11.026 11.026 0 01.25 3.762 1 1 0 01-.89.89 8.968 8.968 0 00-5.35 2.524 1 1 0 01-1.4 0zM6 18a1 1 0 001-1v-2.065a8.935 8.935 0 00-2-.712V17a1 1 0 001 1z"></path></svg>
                         <div class="max-w-full">
                             <div class="text-xs font-bold uppercase tracking-wide text-slate-500 dark:text-slate-400">Academic</div>
-                            <a href="mailto:cloch001@odu.edu" class="contact-link text-sm font-semibold text-slate-800 dark:text-slate-100 hover:text-blue-600 dark:hover:text-blue-400 transition break-all">cloch001@odu.edu</a>
+                            <a href="mailto:cloch001@odu.edu" class="contact-link inline-block py-2 text-sm font-semibold text-slate-800 dark:text-slate-100 hover:text-blue-600 dark:hover:text-blue-400 transition break-all">cloch001@odu.edu</a>
                             <p class="text-xs text-gray-600 dark:text-gray-400 mt-1">Old Dominion University</p>
                         </div>
                     </div>
@@ -1063,11 +1072,11 @@
             <div class="max-w-7xl mx-auto px-4">
                 <p>&copy; 2026 Carl Lochstampfor, Jr. All rights reserved.</p>
                 <div class="mt-4 flex justify-center flex-wrap gap-4 no-print">
-                    <a href="https://www.linkedin.com/in/carl-lochstampfor-jr1" target="_blank" rel="noopener noreferrer" class="hover:text-blue-600 font-medium transition">LinkedIn</a>
-                    <a href="https://github.com/CLochstampfor60" target="_blank" rel="noopener noreferrer" class="hover:text-blue-600 font-medium transition">GitHub</a>
-                    <a href="https://www.researchgate.net/profile/Carl-Lochstampfor" target="_blank" rel="noopener noreferrer" class="hover:text-teal-600 font-medium transition">ResearchGate</a>
-                    <a href="https://scamlingua.org" target="_blank" rel="noopener noreferrer" class="hover:text-purple-600 font-medium transition">ScamLingua</a>
-                    <a href="https://sites.wp.odu.edu/locky/" target="_blank" rel="noopener noreferrer" class="hover:text-purple-600 font-medium transition">ODU Portfolio</a>
+                    <a href="https://www.linkedin.com/in/carl-lochstampfor-jr1" target="_blank" rel="noopener noreferrer" class="inline-block py-2 hover:text-blue-600 font-medium transition">LinkedIn</a>
+                    <a href="https://github.com/CLochstampfor60" target="_blank" rel="noopener noreferrer" class="inline-block py-2 hover:text-blue-600 font-medium transition">GitHub</a>
+                    <a href="https://www.researchgate.net/profile/Carl-Lochstampfor" target="_blank" rel="noopener noreferrer" class="inline-block py-2 hover:text-teal-600 font-medium transition">ResearchGate</a>
+                    <a href="https://scamlingua.org" target="_blank" rel="noopener noreferrer" class="inline-block py-2 hover:text-purple-600 font-medium transition">ScamLingua</a>
+                    <a href="https://sites.wp.odu.edu/locky/" target="_blank" rel="noopener noreferrer" class="inline-block py-2 hover:text-purple-600 font-medium transition">ODU Portfolio</a>
                 </div>
                 <p class="mt-6 text-xs opacity-50 uppercase tracking-widest">Hardened Static Web Architecture | Security by Design</p>
             </div>
@@ -1274,12 +1283,54 @@
             // =====================
             // Navigation Scrolling
             // =====================
+            // =====================
+            // Mobile Menu Toggle
+            // The same <nav> is the desktop bar and the mobile dropdown; only its
+            // `hidden` class differs, so there is one set of links to maintain.
+            // =====================
+            const menuToggle = document.getElementById('menuToggle');
+            const primaryNav = document.getElementById('primaryNav');
+            const menuIconOpen = document.getElementById('menuIconOpen');
+            const menuIconClose = document.getElementById('menuIconClose');
+
+            function setMenu(open) {
+                if (!primaryNav || !menuToggle) return;
+                primaryNav.classList.toggle('hidden', !open);
+                menuToggle.setAttribute('aria-expanded', open ? 'true' : 'false');
+                menuToggle.setAttribute('aria-label', open ? 'Close navigation menu' : 'Open navigation menu');
+                if (menuIconOpen && menuIconClose) {
+                    menuIconOpen.classList.toggle('hidden', open);
+                    menuIconClose.classList.toggle('hidden', !open);
+                }
+            }
+
+            if (menuToggle && primaryNav) {
+                menuToggle.addEventListener('click', () => {
+                    setMenu(primaryNav.classList.contains('hidden'));
+                });
+                // Close on Escape, and on tapping outside the header.
+                document.addEventListener('keydown', (e) => {
+                    if (e.key === 'Escape') setMenu(false);
+                });
+                document.addEventListener('click', (e) => {
+                    if (window.innerWidth >= 1024) return;
+                    if (primaryNav.classList.contains('hidden')) return;
+                    if (!e.target.closest('header')) setMenu(false);
+                });
+                // Reset to the desktop bar if the viewport grows past the md breakpoint.
+                window.addEventListener('resize', () => {
+                    if (window.innerWidth >= 1024) setMenu(false);
+                });
+            }
+
             const navLinks = document.querySelectorAll('.nav-link');
             navLinks.forEach(link => {
                 link.addEventListener('click', function(e) {
                     e.preventDefault();
                     const targetId = this.getAttribute('href').substring(1);
                     const targetElement = document.getElementById(targetId);
+                    // Collapse the mobile panel first so the sticky header measures correctly.
+                    if (window.innerWidth < 1024) setMenu(false);
                     if (targetElement) {
                         const offset = document.querySelector('header').offsetHeight + 20;
                         const targetPosition = targetElement.offsetTop - offset;

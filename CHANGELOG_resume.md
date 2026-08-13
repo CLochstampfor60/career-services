@@ -4,6 +4,36 @@ All notable changes to Carl Lochstampfor's resume site are documented in this fi
 
 ---
 
+## [2.9.0] - 2026-08-13
+
+### Context — the site was already mobile friendly
+Measured at a true 390px viewport before changing anything: viewport meta correct, **zero** horizontally overflowing elements (`scrollWidth == clientWidth`), every grid collapsing to a single column, dark mode correct throughout. Nothing was broken. This release improves **reach and touch usability**, it does not fix a broken layout.
+
+### Changed — mobile header cut from 159px to 69px
+The sticky header had grown to carry headshot, name, download button, a six-link nav wrapping to two lines, and the theme toggle — **159px, or 19% of an iPhone 14 viewport and 24% of an iPhone SE**, held permanently while scrolling a 10,600px-tall page.
+
+- Below `lg:` (1024px) the header is now a single 69px row: **smaller headshot** (`w-11` vs `w-16`), name at `text-base`, a **hamburger button**, and the theme toggle
+- The **same `<nav>`** serves as the desktop bar and the mobile dropdown — only its `hidden` class changes, so there is one set of links to maintain, not two
+- The dropdown is absolutely positioned under the header, with links as full-width 44px rows and the **download button repeated inside it**, since it no longer fits in the collapsed bar
+- Accessible: `aria-expanded` and `aria-controls` on the toggle, label swapping between "Open"/"Close navigation menu", hamburger↔✕ icon swap, closes on Escape, on outside tap, on link tap, and on resize past `lg:`
+- **Desktop is visually unchanged** — verified by screenshot at 1280px
+
+### Changed — touch target sizes
+34 interactive elements measured under 44px at phone width; now 14, none under 36px (was as small as 17px).
+
+- **Carousel arrows** were the worst at **23×36** — now 44×44
+- Theme toggle 40×40 → 44×44; nav rows → 44px; accordion `<summary>` 20px → 44px
+- CTA buttons (arXiv, ScamLingua, Source Code, GitHub) 34–36px → 44px
+- Contact / social / footer text links 17–20px → 36px. Left at 36 rather than 44 deliberately: that clears the **WCAG 2.5.8 AA minimum of 24px** with margin, while forcing 44px on inline link lists would balloon the footer and social bar for no real gain
+- Social-bar `|` separators hidden below `sm:` — with the bar wrapping to three lines on a phone they dangled at line ends; they are `aria-hidden` on desktop
+
+### Note on verification
+Two earlier "findings" this session were tooling artifacts, not site bugs, and are recorded here so the method isn't repeated: headless Edge floors small `--window-size` values (a 390px request rendered at 496px and the screenshot was cropped, faking overflow), and CSS transitions do not advance under `--virtual-time-budget`, so `getComputedStyle` returns pre-transition values — which made the dark-mode Contact card look white when it was not. Measurement was redone through a fixed-width `<iframe>` with transitions disabled.
+
+- **Version bumped to v2.9.0**
+
+---
+
 ## [2.8.1] - 2026-08-13
 
 ### Added — Word source under version control
