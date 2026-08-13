@@ -4,6 +4,48 @@ All notable changes to Carl Lochstampfor's resume site are documented in this fi
 
 ---
 
+## [2.7.0] - 2026-08-13
+
+### Added — "Open to roles" availability statement
+- **Muted line below the Executive Summary paragraph**, inside the same card and separated by a hairline top border: "Actively seeking a cybersecurity internship. Open to AI security, ML engineering, and applied research roles full-time May 2027."
+- Styled `text-sm text-gray-600 dark:text-gray-400` so it reads as a footnote to the summary rather than a fifth headline claim
+
+### Added — Contact section
+- **New `📬 Contact` section** (`id="contact"`) at the bottom of `<main>`, between the three-column body grid and the footer
+- Three channels in a `md:grid-cols-3` card, each with an inline SVG icon, a small uppercase label, the address itself as the link text, and a one-line descriptor:
+  - **LinkedIn** — `www.linkedin.com/in/carl-lochstampfor-jr1` — "Professional inquiries"
+  - **Research** — `contact@scamlingua.org` — "COVA datasets & ScamLingua"
+  - **Academic** — `cloch001@odu.edu` — "Old Dominion University"
+- Closes with the same availability line used under the Executive Summary, so the two read identically
+- **"Contact" added to the primary nav**, after Experience. The existing smooth-scroll handler is generic (`.nav-link` → `getElementById`), so the new anchor needed no JS change
+- **No contact form and no phone number** — deliberate: a static site can't process a form without third-party JS, which would mean loosening the CSP
+
+### Changed — LinkedIn vanity URL
+- Profile URL updated from `linkedin.com/in/carl-lochstampfor-jr-08b311223` to **`www.linkedin.com/in/carl-lochstampfor-jr1`** in all four places it appears in `index.html`: the JSON-LD `sameAs` array, the social links bar, the new contact card, and the footer
+- `README.md` → "Professional Links" updated to match
+- The archived snapshots under `internal_docs/` (`index_v2.10.html`, `index_v2.11.html`) were intentionally left on the old URL — rewriting an archive makes it a less accurate record of what shipped
+
+### Changed — Research timeline planning dates
+- **COVA-B Benign Dataset**: Summer 2026 → **Fall 2026** (still "In Progress")
+- **Multi-Model Comparison Study**: Fall 2026 → **Winter 2026** (still "Planning")
+- Dashed-border / gray-dot / muted-text planning styling from v2.5.0 unchanged
+
+### Design notes
+- Icons are **inline SVG paths**, not an icon font or CDN sprite — no new CSP origins, no extra requests, and they inherit `currentColor` so dark mode needs no second asset
+- Icon colors follow the established hierarchy: navy for LinkedIn (structure), periwinkle for research, gold for academic
+- Contact heading uses `border-blue-700` to bookend the blue Executive Summary heading at the top of the page
+- Email addresses are plain `mailto:` links — CSP `default-src 'self'` does not restrict `mailto:` navigation, so no policy change was needed
+- New print rule `.contact-link[href]:after { content: "" }` suppresses the global "print the href after every link" behavior for these three, since the visible text is already the address (avoids `cloch001@odu.edu (mailto:cloch001@odu.edu)` in the PDF)
+
+### Deliberately not done
+- **No `email` field added to the JSON-LD `Person` block.** The addresses are on the page for humans to read; putting them in structured data makes them trivially machine-scrapable. Same reasoning as the standing no-phone-number policy
+
+### Preserved
+- CSP, dark mode, print stylesheet, mobile responsiveness, GSAP reveal animations, and `prefers-reduced-motion` all unchanged
+- **Version bumped to v2.7.0**
+
+---
+
 ## [2.6.0] - 2026-07-30
 
 ### Added — Personal Projects subsection (LockBadges)

@@ -42,7 +42,7 @@ This repository is more than a static document; it is a hardened, search-optimiz
 
 ## 🔗 Professional Links
 
-- **LinkedIn:** [Carl Lochstampfor, Jr.](https://www.linkedin.com/in/carl-lochstampfor-jr-08b311223/)
+- **LinkedIn:** [Carl Lochstampfor, Jr.](https://www.linkedin.com/in/carl-lochstampfor-jr1)
 - **ODU ePortfolio:** [University Academic Portfolio](https://sites.wp.odu.edu/locky/)
 - **Live Resume:** [GitHub Pages Deployment](https://clochstampfor60.github.io/resume/)
 
