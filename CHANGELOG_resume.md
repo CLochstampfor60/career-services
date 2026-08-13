@@ -4,6 +4,23 @@ All notable changes to Carl Lochstampfor's resume site are documented in this fi
 
 ---
 
+## [2.10.1] - 2026-08-13
+
+### Changed — PDF Professional Experience: inline job titles + role descriptions
+PDF only; no change to the website. The section previously listed **results without ever saying what the role was**.
+
+- **Job title moved onto the company line**, right-aligned to the margin via a right tab stop at 540pt, in italic — e.g. `Cardinal Housing, LLC | Jacksonville, FL | 2012 – 2024 (Closed)` … `Property Management and Estate Fiduciary`
+- The freed line beneath each job now carries a **one-line role description**, so the layout cost is zero: the title vacated that line rather than the document growing into it
+- Descriptions are **drawn from the website's experience copy**, deliberately favouring detail that was *on the site but absent from the PDF bullets* — loan-origination workflow redesign, the SPOC role, financial wellness coaching — so they set scope instead of restating achievements
+- A first draft was discarded for doing exactly that: it opened BlueHub with "supporting internal bank examinations and compliance audits", which is almost verbatim that job's first bullet
+
+### Notes
+- Still **two pages**, with roughly 3–4 lines of slack left on page 2 if any description should be expanded
+- Source saved to `_source/Carl_Lochstampfor_Resume.docx`; dated copy kept at `internal_docs/..._v5.docx`
+- Version bumped to **v2.10.1** to keep the on-page string in step with this changelog, though the site itself is unchanged
+
+---
+
 ## [2.10.0] - 2026-08-13
 
 ### Added — visible keyboard focus
