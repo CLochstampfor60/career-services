@@ -4,6 +4,23 @@ All notable changes to Carl Lochstampfor's resume site are documented in this fi
 
 ---
 
+## [2.11.1] - 2026-08-13
+
+### Fixed — social links bar alignment
+- The bar's items sat on inconsistent baselines: the `|` separators and version label rendered visibly higher than the links
+- **Cause was a regression from v2.9.0.** Adding `py-2` to the links for touch targets made them taller than the separator `<span>`s, and the flex container had no `items-center` — so under the default `align-items: stretch` the separators stretched to full height with their text pinned to the top
+- Adding `items-center` fixes it. Verified: all eleven items now share an identical vertical centre (spread **0.00px**, previously misaligned)
+
+### Fixed — AmeriCorps stakeholder bullet
+- Replaced the bullet claiming work "requiring **role separation** and **controlled access** to shared resources". Checked against the 2023 résumé: the underlying fact is real — volunteers did include Fortune 500 executives, military personnel, students and court-ordered individuals — but the access-control framing was layered on afterwards and read as security jargon applied to volunteer coordination
+- Now states the collaboration plainly, and the coaching bullet reflects what it actually was: goal setting, budgeting, credit rebuilding, savings planning, asset development
+
+### Added — mediation and court work under EverBank & TIAA
+- New bullet covering representation of the bank's foreclosure team in mediation, on calls and in hearings alongside borrowers' counsel and presiding judges, plus coordination with courts, attorneys, mediators and agents to validate court-ordered requests and bankruptcy approvals
+- Corroborated by the 2023 résumé ("Coordinated with courts, third-party attorneys, mediators… validated court-ordered requests; and obtained bankruptcy approvals"). This is where the legal-stakeholder material belongs, not under AmeriCorps
+
+---
+
 ## [2.11.0] - 2026-08-13
 
 ### Changed — website Professional Experience expanded
