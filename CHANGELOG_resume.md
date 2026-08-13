@@ -4,6 +4,20 @@ All notable changes to Carl Lochstampfor's resume site are documented in this fi
 
 ---
 
+## [2.13.1] - 2026-08-13
+
+### Changed — back-to-top button made less obtrusive
+- **85% opacity with a 4px backdrop blur**, returning to full opacity on hover and keyboard focus, so it recedes into the page while scrolling but firms up on interaction
+- Opacity was measured, not guessed. At 85% the button holds **7.33:1** against the light-mode page and **6.86:1** in dark, with the arrow at 7.33:1 and 4.42:1 &mdash; all far above the 3:1 WCAG 1.4.11 floor for UI components. Heavier translucency was rejected because it would erode the contrast work from v2.10.0
+- **Safe-area insets**: `bottom`/`right` now use `calc(1.5rem + env(safe-area-inset-*, 0px))`, keeping the button clear of the iOS Safari toolbar and home indicator. `env()` resolves to 0px elsewhere, so desktop spacing is unchanged
+
+### Not changed — size
+Left at 48&times;48. The touch-target floor established in v2.9.0 is 44px, so there is only ~4px of room before it would undercut that; shrinking it would trade a real accessibility guarantee for a negligible visual gain.
+
+- **Version bumped to v2.13.1**
+
+---
+
 ## [2.13.0] - 2026-08-13
 
 ### Added — back-to-top button
