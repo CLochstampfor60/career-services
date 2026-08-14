@@ -137,6 +137,30 @@
             }
         }
     </script>
+
+    <script>
+        // ============================================================
+        //  Theme persistence — restore only.
+        //
+        //  Runs here, in <head> before <body> paints, so a returning dark-mode
+        //  reader never sees a flash of the light page. Moving this to the
+        //  DOMContentLoaded block below would reintroduce that flash.
+        //
+        //  Light is the deliberate default: only an explicit toggle is ever
+        //  remembered. prefers-color-scheme is intentionally NOT consulted, so
+        //  what a first-time visitor sees does not depend on their OS settings.
+        //
+        //  localStorage access throws outright in some privacy configurations
+        //  (Safari private mode, third-party/site-data blocking), so it is
+        //  wrapped — a storage failure must leave the page light, not broken.
+        // ============================================================
+        try {
+            if (localStorage.getItem('theme') === 'dark') {
+                document.documentElement.classList.add('dark');
+            }
+        } catch (e) { /* storage unavailable — stay on the light default */ }
+    </script>
+
     <style>
         body { font-family: 'Inter', sans-serif; transition: background-color 0.3s ease, color 0.3s ease; }
         body { background-color: #f7f7f7; color: #1e293b; }
@@ -520,7 +544,7 @@
                 <!-- Inherits the row's slate-600/slate-400 rather than overriding it: this is
                      the one non-link in the bar, so it should sit quieter than the navy links
                      while still clearing 4.5:1 in both themes. -->
-                <span class="font-semibold">e-Resume v2.14.0</span>
+                <span class="font-semibold">e-Resume v2.15.0</span>
             </div>
         </section>
 
@@ -1442,14 +1466,29 @@
                 themeToggleBtn.setAttribute('aria-pressed', isDark ? 'true' : 'false');
                 themeToggleBtn.setAttribute('aria-label', isDark ? 'Switch to light mode' : 'Switch to dark mode');
             }
-            syncThemeButtonState(htmlElement.classList.contains('dark'));
+
+            // The sun/moon markup is authored for light mode, so a restored dark
+            // session has to be reconciled here — otherwise the button would show
+            // the moon (and announce "switch to dark") on an already-dark page.
+            function syncThemeIcons(isDark) {
+                sunIcon.classList.toggle('hidden', !isDark);
+                moonIcon.classList.toggle('hidden', isDark);
+            }
+
+            const startsDark = htmlElement.classList.contains('dark');
+            syncThemeIcons(startsDark);
+            syncThemeButtonState(startsDark);
 
             themeToggleBtn.addEventListener('click', function() {
                 const isDark = htmlElement.classList.toggle('dark');
-                sunIcon.classList.toggle('hidden', !isDark);
-                moonIcon.classList.toggle('hidden', isDark);
+                syncThemeIcons(isDark);
                 syncThemeButtonState(isDark);
                 updateChartTheme(isDark);
+                // Persist the explicit choice. Written on toggle only, so a reader
+                // who never touches the button leaves no storage behind.
+                try {
+                    localStorage.setItem('theme', isDark ? 'dark' : 'light');
+                } catch (e) { /* storage unavailable — theme lasts this session only */ }
             });
 
             // =====================
@@ -1493,7 +1532,15 @@
             }
 
             if (ctx) {
-                myRadarChart = new Chart(ctx, { type: 'radar', data: skillData, options: getChartOptions(false) });
+                // Built from the live theme rather than a hard-coded `false`. That
+                // constant was correct only while the page always started light;
+                // with a restored dark session it would paint slate-800 axis labels
+                // onto the dark card (1.3:1) until the toggle was pressed.
+                myRadarChart = new Chart(ctx, {
+                    type: 'radar',
+                    data: skillData,
+                    options: getChartOptions(htmlElement.classList.contains('dark'))
+                });
             }
             
             function updateChartTheme(isDark) {
