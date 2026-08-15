@@ -1,8 +1,8 @@
 # 🛡️ Interactive Cybersecurity & AI Security Research Portfolio
 
-A single-file, hardened, interactive résumé site for a cybersecurity undergraduate and AI security researcher — published research, live project work, and a recruiter-ready PDF, all served as static HTML from GitHub Pages.
+A hardened, interactive résumé site for a cybersecurity undergraduate and AI security researcher — published research, live project work, and a recruiter-ready PDF, all served as static HTML from GitHub Pages.
 
-**Live site:** <https://clochstampfor60.github.io/resume/> · **Current release:** e-Resume v2.15.0
+**Live site:** <https://clochstampfor60.github.io/resume/> · **Current release:** e-Resume v2.15.1
 
 ---
 
@@ -63,7 +63,7 @@ Accessibility is treated as a measured requirement, not an assumption — contra
 
 ### ⚡ Performance
 
-* **No build step:** One `index.html`. Nothing to compile, bundle, or deploy beyond a `git push`.
+* **No build step:** Plain HTML, CSS and JS served as-is. Nothing to compile, bundle, or deploy beyond a `git push`.
 * **Resource hints:** `preconnect` to every external origin used.
 * **Image strategy:** `<picture>` with WebP and PNG fallback, explicit `width`/`height` to prevent layout shift, `lazy-loading` below the fold and `eager` for the header.
 * **Scroll animation:** GSAP + ScrollTrigger when available, CSS-only fallback otherwise, with the CSS transition disabled while GSAP owns the animation so nothing double-animates.
@@ -73,6 +73,7 @@ Accessibility is treated as a measured requirement, not an assumption — contra
 * **Navy / Gold / Periwinkle palette** with defined semantic roles — navy for structure and authority, gold for achievements and highlights, periwinkle for AI and research content. Implemented by remapping Tailwind's built-in families, so utility classes recolor automatically.
 * **Light and dark modes** via a header toggle, with a Chart.js theme sync so the chart re-renders in the active palette. Every color decision on the page is validated in both themes.
 * **Named CSS components** (`.social-link`, `.btn-solid`, `.nav-link`, `.contact-link`) instead of repeated utility strings — every contrast bug found so far came from the same element being styled in five places, so one rule per component removes the class of bug, not just the instance.
+* **Styling and behavior live in external files**, not inline blocks. Same reasoning as above one level up: a stylesheet small enough to read end-to-end is one where a duplicated rule is visible rather than buried in a thousand lines of markup.
 
 ### 🖨️ Print & PDF
 
@@ -84,7 +85,11 @@ Accessibility is treated as a measured requirement, not an assumption — contra
 
 | Path | Purpose |
 | --- | --- |
-| `index.html` | The entire site — markup, styles, and scripts in one file. |
+| `index.html` | Site markup and metadata (JSON-LD, OG tags, CSP). |
+| `styles.css` | All custom styling — named components, print rules, reduced-motion. |
+| `app.js` | Behavior: counters, carousels, Chart.js radar, scroll reveals, nav. |
+| `theme.js` | Light/dark restore. Render-blocking in `<head>` by design — prevents a flash of the light theme. |
+| `tailwind-config.js` | Navy/gold/periwinkle palette for the Tailwind Play CDN. Must load after the CDN and stay synchronous. |
 | `docs/Carl_Lochstampfor_Resume.pdf` | **The published résumé.** Served by the site's download button. |
 | `_source/` | Internal source assets (Word résumé, original images). Excluded from the Pages build. |
 | `Images/` | Headshots and project/lab screenshots used by the site. |
